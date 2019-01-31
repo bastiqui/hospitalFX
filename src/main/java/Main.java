@@ -15,7 +15,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("window.fxml")));
         stage.setScene(new Scene(pane));
-        stage.setTitle("prova jxf maven");
+        stage.setTitle("HospitalFX");
         stage.show();
     }
 
