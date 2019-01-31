@@ -11,11 +11,14 @@
           <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="34.0" prefWidth="598.0">
                <children>
                   <Button fx:id="btnSearch" mnemonicParsing="false" prefHeight="34.0" prefWidth="63.0" text="Search" />
-                  <Button fx:id="btnList" onAction="#VerLista" layoutX="63.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="41.0" text="List" />
+                  <Button fx:id="btnList" layoutX="63.0" mnemonicParsing="false" onAction="#VerLista" prefHeight="34.0" prefWidth="41.0" text="List" />
                   <Button fx:id="BtnFile" layoutX="104.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="41.0" text="File" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="354.0" prefWidth="598.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="354.0" prefWidth="598.0">
+               <children>
+                  <TableView fx:id="tblView" layoutX="-2.0" layoutY="-6.0" prefHeight="362.0" prefWidth="600.0" />
+               </children></AnchorPane>
         </items>
       </SplitPane>
    </children>
