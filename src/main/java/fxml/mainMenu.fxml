@@ -4,7 +4,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WindowController">
    <children>
       <SplitPane dividerPositions="0.5" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
@@ -12,11 +11,26 @@
           <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="34.0" prefWidth="598.0">
                <children>
                   <Button fx:id="btnSearch" mnemonicParsing="false" prefHeight="34.0" prefWidth="63.0" text="Search" />
-                  <Button fx:id="btnList" layoutX="63.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="41.0" text="List" />
+                  <Button fx:id="btnList" layoutX="63.0" mnemonicParsing="false" onAction="#VerLista" prefHeight="34.0" prefWidth="41.0" text="List" />
                   <Button fx:id="BtnFile" layoutX="104.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="41.0" text="File" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="354.0" prefWidth="598.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="354.0" prefWidth="598.0">
+               <children>
+                  <TableView prefHeight="356.0" prefWidth="598.0">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="DNI" />
+                        <TableColumn prefWidth="75.0" text="NOM" />
+                      <TableColumn prefWidth="75.0" text="COGNOMS" />
+                      <TableColumn prefWidth="75.0" text="EMAIL" />
+                        <TableColumn prefWidth="75.0" text="NAIXEMENT" />
+                        <TableColumn prefWidth="75.0" text="GENERE" />
+                        <TableColumn prefWidth="75.0" text="PES" />
+                        <TableColumn prefWidth="75.0" text="ALÇADA" />
+                        <TableColumn prefWidth="75.0" text="TELEFON" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
         </items>
       </SplitPane>
    </children>
