@@ -2,6 +2,7 @@ package Model;
 
 import com.opencsv.CSVReader;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -15,7 +16,7 @@ public class Hospital {
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public Collection<Pacient> loadPacients(String file) {
+    public Collection<Pacient> loadPacients(File file) {
         CSVReader csvreader = null;
         String[] line;
         try {
