@@ -17,6 +17,13 @@ public class Hospital {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Collection<Pacient> loadPacients(File file) {
+        boolean carrega = checkCSV(file);
+        if (carrega) {
+            return map_pacients.values();
+        } else return null;
+    }
+
+    public boolean checkCSV (File file) {
         CSVReader csvreader = null;
         String[] line;
         try {
@@ -35,11 +42,11 @@ public class Hospital {
                                 Integer.valueOf(line[7]))
                 );
             }
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
+            return false;
         }
-
-        return map_pacients.values();
+        return true;
     }
 
 }
