@@ -71,4 +71,6 @@ public class WindowController {
         Hospital hospital = new Hospital();
         pacientList.addAll(hospital.loadPacients(csvPath));
     }
+
+
 }
