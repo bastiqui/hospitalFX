@@ -1,24 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WindowController">
    <children>
-      <SplitPane dividerPositions="0.5" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0">
+      <SplitPane dividerPositions="0.5, 0.5" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0">
         <items>
           <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="34.0" prefWidth="800.0">
                <children>
-                  <Button fx:id="btnSearch" mnemonicParsing="false" prefHeight="34.0" prefWidth="63.0" text="Search" />
-                  <Button fx:id="btnList" layoutX="63.0" mnemonicParsing="false" onAction="#VerLista" prefHeight="34.0" prefWidth="41.0" text="List" />
-                  <Button fx:id="BtnFile" layoutX="104.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="34.0" prefWidth="41.0" text="File" />
+                  <Button fx:id="btnList" layoutY="3.0" mnemonicParsing="false" onAction="#VerLista" prefHeight="34.0" prefWidth="41.0" text="List" />
+                  <Button fx:id="BtnFile" layoutX="41.0" layoutY="3.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="34.0" prefWidth="41.0" text="File" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="354.0" prefWidth="800.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="270.0" prefWidth="798.0">
                <children>
                   <TableView fx:id="tblView" layoutX="-2.0" layoutY="-6.0" prefHeight="600.0" prefWidth="800.0" />
                </children></AnchorPane>
+            <AnchorPane maxHeight="300.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="798.0">
+               <children>
+                  <Label layoutX="26.0" layoutY="246.0" text="Height:" />
+                  <TextField fx:id="WeightT" layoutX="391.0" layoutY="196.0" />
+                  <TextField fx:id="AgeF" layoutX="161.0" layoutY="138.0" />
+                  <TextField fx:id="SearchDni" layoutX="14.0" layoutY="41.0" />
+                  <TextField fx:id="SearchSurname" layoutX="379.0" layoutY="41.0" />
+                  <TextField fx:id="SearchName" layoutX="198.0" layoutY="41.0" />
+                  <Label layoutX="75.0" layoutY="20.0" text="DNI" />
+                  <Label layoutX="276.0" layoutY="20.0" text="Name" />
+                  <Label layoutX="447.0" layoutY="20.0" text="Surname" />
+                  <Button fx:id="btnSearch" layoutX="617.0" layoutY="41.0" mnemonicParsing="false" text="Search" />
+                  <Label layoutX="36.0" layoutY="135.0" text="Age:" />
+                  <Label layoutX="353.0" layoutY="148.0" text="To" />
+                  <TextField fx:id="AgeT" layoutX="391.0" layoutY="138.0" />
+                  <TextField fx:id="WeightF" layoutX="161.0" layoutY="196.0" />
+                  <Label layoutX="26.0" layoutY="201.0" text="Weight:" />
+                  <Label layoutX="361.0" layoutY="201.0" text="To" />
+                  <TextField fx:id="HeightF" layoutX="161.0" layoutY="241.0" />
+                  <Label layoutX="361.0" layoutY="246.0" text="To" />
+                  <TextField fx:id="HeightT" layoutX="399.0" layoutY="241.0" />
+                  <Label layoutX="100.0" layoutY="246.0" text="From" />
+                  <Label layoutX="99.0" layoutY="201.0" text="From" />
+                  <Label layoutX="99.0" layoutY="135.0" text="From" />
+               </children>
+            </AnchorPane>
         </items>
       </SplitPane>
    </children>
