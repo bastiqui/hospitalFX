@@ -42,11 +42,11 @@ public class Hospital {
                                 Integer.valueOf(line[7]))
                 );
             }
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
-        return true;
     }
 
 }
