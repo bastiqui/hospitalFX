@@ -7,12 +7,14 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class WindowController {
     public Button btnSearch, btnList, BtnFile;
@@ -25,6 +27,8 @@ public class WindowController {
     private boolean tablaHecha = false;
     private Hospital hospital = new Hospital();
     private File csvPath = new File("");
+    private ObservableList<Pacient> data = FXCollections.observableArrayList();
+
 
     private void alerta(String header, String content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -62,11 +66,8 @@ public class WindowController {
         if (listaCargada) {
             tblView.refresh();
             pacientList.clear();
-
             if (!tablaHecha) CamposTabla();
-
-            ObservableList<Pacient> data = FXCollections.observableArrayList();
-            data.add(new Pacient("12345678C", "Test", "Java", LocalDate.of(2019, 12, 12), Persona.Genere.DONA, "55555599", 5.4f, 100));
+           // data.add(new Pacient("12345678C", "Test", "Java", LocalDate.of(2019, 12, 12), Persona.Genere.DONA, "55555599", 5.4f, 100));
             loadData();
             data.addAll(pacientList);
             tblView.setItems(data);
@@ -89,4 +90,30 @@ public class WindowController {
         if (!listaCargada) alerta("Fitxer not vàlid.", "El programa no pot llegir aquest fitxer");
         else VerLista();
     }
+    public  void Buscar(ActionEvent event){
+        List<Pacient> pacients = pacientList.stream()
+                .filter(pacient -> pacient.getDNI().equals(SearchDni.getText()))
+                .collect(Collectors.toList());
+        if(SearchDni.getText().equals("")){
+            data.clear();
+            data.addAll(pacientList);
+            tblView.setItems(data);
+        }else{
+            data.clear();
+            data.addAll(pacients);
+            tblView.setItems(data);
+        }
+    }
+
+    public void searchtext(KeyEvent keyEvent) {
+        data.clear();
+        List<Pacient> pacients = pacientList.stream()
+                .filter(pacient -> pacient.getNom().contains(SearchName.getText()))
+                .filter((pacient -> pacient.getCognoms().contains(SearchSurname.getText())))
+                .filter(pacient -> pacient.getDNI().contains(SearchDni.getText()))
+                .collect(Collectors.toList());
+        data.addAll(pacients);
+        tblView.setItems(data);
+    }
+
 }
