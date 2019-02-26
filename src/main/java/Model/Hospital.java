@@ -30,7 +30,6 @@ public class Hospital {
             csvreader = new CSVReader(new FileReader(file));
             csvreader.readNext(); //saltem primera línia de titols
             while ((line = csvreader.readNext()) != null) {
-                System.out.println(line[0] + ":" + line[4]);
                 map_pacients.putIfAbsent(line[0],
                         new Pacient(line[0],
                                 line[1],
