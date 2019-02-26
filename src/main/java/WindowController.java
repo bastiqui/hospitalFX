@@ -1,6 +1,5 @@
 import Model.Hospital;
 import Model.Pacient;
-import Model.Persona;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,7 +10,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,7 +18,7 @@ public class WindowController {
     public Button btnSearch, btnList, BtnFile;
     public TableView<Pacient> tblView;
     public TextField WeightF, WeightT, AgeF, AgeT, HeightF, HeightT;
-    public TextField SearchDni, SearchSurname, SearchName;;
+    public TextField SearchDni, SearchSurname, SearchName;
 
     private List<Pacient> pacientList = new ArrayList<>();
     private boolean listaCargada = false;
@@ -67,7 +65,6 @@ public class WindowController {
             tblView.refresh();
             pacientList.clear();
             if (!tablaHecha) CamposTabla();
-           // data.add(new Pacient("12345678C", "Test", "Java", LocalDate.of(2019, 12, 12), Persona.Genere.DONA, "55555599", 5.4f, 100));
             loadData();
             data.addAll(pacientList);
             tblView.setItems(data);
@@ -107,10 +104,31 @@ public class WindowController {
 
     public void searchtext(KeyEvent keyEvent) {
         data.clear();
+
         List<Pacient> pacients = pacientList.stream()
                 .filter(pacient -> pacient.getNom().contains(SearchName.getText()))
                 .filter((pacient -> pacient.getCognoms().contains(SearchSurname.getText())))
                 .filter(pacient -> pacient.getDNI().contains(SearchDni.getText()))
+                .collect(Collectors.toList());
+        data.addAll(pacients);
+        tblView.setItems(data);
+    }
+
+    public void filter(KeyEvent keyEvent) {
+
+        //TODO Esto no funciona al parsear
+        data.clear();
+
+        /*Float mesPes = Float.parseFloat(WeightF.getText());
+        Float menysPes = Float.parseFloat(WeightT.getText());*/
+        int mesAlcada = Integer.parseInt(HeightF.getText());
+        int menysAlcada = Integer.parseInt(HeightT.getText());
+
+        List<Pacient> pacients = pacientList.stream()
+                /*.filter(pacient -> pacient.getPes() > mesPes)
+                .filter(pacient -> pacient.getPes() < menysPes)*/
+                .filter(pacient -> pacient.getAlçada() > mesAlcada)
+                .filter(pacient -> pacient.getAlçada() < menysAlcada)
                 .collect(Collectors.toList());
         data.addAll(pacients);
         tblView.setItems(data);
