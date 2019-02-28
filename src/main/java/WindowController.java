@@ -119,21 +119,21 @@ public class WindowController {
         //TODO Esto no funciona al parsear
         data.clear();
 
-        Float mesPes = 0.0f;
+        float mesPes = 0.0f;
         if (!WeightF.getText().equals("")) {
             mesPes = Float.parseFloat(WeightF.getText());
         }
-        Float menysPes = 10000.0f;
+        float menysPes = 10000.0f;
         if (!WeightT.getText().equals("")) {
             menysPes = Float.parseFloat(WeightT.getText());
         }
-        Integer mesAlcada = 0;
+        int mesAlcada = 0;
         if (!HeightF.getText().equals("")) {
-            mesAlcada = Integer.valueOf(HeightF.getText());
+            mesAlcada = Integer.parseInt(HeightF.getText());
         }
-        Integer menysAlcada = 100000;
+        int menysAlcada = 100000;
         if (!HeightT.getText().equals("")) {
-            menysAlcada = Integer.valueOf(HeightT.getText());
+            menysAlcada = Integer.parseInt(HeightT.getText());
         }
 
         Float finalMesPes = mesPes;
