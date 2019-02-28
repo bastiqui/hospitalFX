@@ -10,7 +10,11 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,6 +31,7 @@ public class WindowController {
     private File csvPath = new File("");
     private ObservableList<Pacient> data = FXCollections.observableArrayList();
 
+    LocalDate today = LocalDate.now();
 
     private void alerta(String header, String content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -106,6 +111,14 @@ public class WindowController {
 
         data.clear();
 
+        int mesEdat = 0;
+        if (!AgeF.getText().equals(""))  {
+            mesEdat = Integer.parseInt(AgeF.getText());
+        }
+        int menysEdat = 500;
+        if (!AgeT.getText().equals(""))  {
+            menysEdat = Integer.parseInt(AgeT.getText());
+        }
         float mesPes = 0.0f;
         if (!WeightF.getText().equals("")) {
             mesPes = Float.parseFloat(WeightF.getText());
@@ -123,12 +136,16 @@ public class WindowController {
             menysAlcada = Integer.parseInt(HeightT.getText());
         }
 
-        Float finalMesPes = mesPes;
-        Float finalMenysPes = menysPes;
-        Integer finalMesAlcada = mesAlcada;
-        Integer finalMenysAlcada = menysAlcada;
+        int finalMesEdat = mesEdat;
+        int finalMenysEdat = menysEdat;
+        float finalMesPes = mesPes;
+        float finalMenysPes = menysPes;
+        int finalMesAlcada = mesAlcada;
+        int finalMenysAlcada = menysAlcada;
 
         List<Pacient> pacients = pacientList.stream()
+                .filter(pacient -> AgeCalculator(pacient.getDataNaixament(), today) > finalMesEdat)
+                .filter(pacient -> AgeCalculator(pacient.getDataNaixament(), today) < finalMenysEdat)
                 .filter(pacient -> pacient.getPes() > finalMesPes)
                 .filter(pacient -> pacient.getPes() < finalMenysPes)
                 .filter(pacient -> pacient.getAlçada() > finalMesAlcada)
@@ -142,5 +159,11 @@ public class WindowController {
         tblView.setItems(data);
     }
 
-
+    private int AgeCalculator (LocalDate birthDate, LocalDate currentDate) {
+        if ((birthDate != null) && (currentDate != null)) {
+            return Period.between(birthDate, currentDate).getYears();
+        } else {
+            return 0;
+        }
+    }
 }
