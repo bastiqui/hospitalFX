@@ -13,6 +13,7 @@
                <children>
                   <Button fx:id="btnList" layoutY="3.0" mnemonicParsing="false" onAction="#VerLista" prefHeight="34.0" prefWidth="41.0" text="List" />
                   <Button fx:id="BtnFile" layoutX="41.0" layoutY="3.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="34.0" prefWidth="41.0" text="File" />
+                  <Button fx:id="BtnStats" layoutX="82.0" layoutY="3.0" mnemonicParsing="false" onAction="#ShowChart" prefHeight="34.0" prefWidth="63.0" text="Charts" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="270.0" prefWidth="798.0">
@@ -22,8 +23,8 @@
             <AnchorPane maxHeight="300.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="798.0">
                <children>
                   <Label layoutX="27.0" layoutY="214.0" text="Height:" />
-                  <TextField fx:id="WeightT" layoutX="381.0" layoutY="168.0" onKeyTyped="#filter"/>
-                  <TextField fx:id="AgeF" layoutX="152.0" layoutY="130.0" onKeyTyped="#filter"/>
+                  <TextField fx:id="WeightT" layoutX="381.0" layoutY="168.0" onKeyTyped="#filter" />
+                  <TextField fx:id="AgeF" layoutX="152.0" layoutY="130.0" onKeyTyped="#filter" />
                   <TextField fx:id="SearchDni" layoutX="14.0" layoutY="41.0" onKeyTyped="#filter" />
                   <TextField fx:id="SearchSurname" layoutX="379.0" layoutY="41.0" onKeyTyped="#filter" />
                   <TextField fx:id="SearchName" layoutX="198.0" layoutY="41.0" onKeyTyped="#filter" />
@@ -34,10 +35,10 @@
                   <Label layoutX="36.0" layoutY="135.0" text="Age:" />
                   <Label layoutX="345.0" layoutY="135.0" text="To" />
                   <TextField fx:id="AgeT" layoutX="377.0" layoutY="130.0" onKeyTyped="#filter" />
-                  <TextField fx:id="WeightF" layoutX="152.0" layoutY="168.0" onKeyTyped="#filter"/>
+                  <TextField fx:id="WeightF" layoutX="152.0" layoutY="168.0" onKeyTyped="#filter" />
                   <Label layoutX="26.0" layoutY="173.0" text="Weight:" />
                   <Label layoutX="345.0" layoutY="173.0" text="To" />
-                  <TextField fx:id="HeightF" layoutX="152.0" layoutY="209.0" onKeyTyped="#filter"/>
+                  <TextField fx:id="HeightF" layoutX="152.0" layoutY="209.0" onKeyTyped="#filter" />
                   <Label layoutX="345.0" layoutY="214.0" text="To" />
                   <TextField fx:id="HeightT" layoutX="381.0" layoutY="209.0" onKeyTyped="#filter" />
                   <Label layoutX="99.0" layoutY="214.0" text="From" />
