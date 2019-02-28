@@ -119,19 +119,38 @@ public class WindowController {
         //TODO Esto no funciona al parsear
         data.clear();
 
-        /*Float mesPes = Float.parseFloat(WeightF.getText());
-        Float menysPes = Float.parseFloat(WeightT.getText());*/
-        int mesAlcada = Integer.parseInt(HeightF.getText());
-        int menysAlcada = Integer.parseInt(HeightT.getText());
+        Float mesPes = 0.0f;
+        if (!WeightF.getText().equals("")) {
+            mesPes = Float.parseFloat(WeightF.getText());
+        }
+        Float menysPes = 10000.0f;
+        if (!WeightT.getText().equals("")) {
+            menysPes = Float.parseFloat(WeightT.getText());
+        }
+        Integer mesAlcada = 0;
+        if (!HeightF.getText().equals("")) {
+            mesAlcada = Integer.valueOf(HeightF.getText());
+        }
+        Integer menysAlcada = 100000;
+        if (!HeightT.getText().equals("")) {
+            menysAlcada = Integer.valueOf(HeightT.getText());
+        }
+
+        Float finalMesPes = mesPes;
+        Float finalMenysPes = menysPes;
+        Integer finalMesAlcada = mesAlcada;
+        Integer finalMenysAlcada = menysAlcada;
 
         List<Pacient> pacients = pacientList.stream()
-                /*.filter(pacient -> pacient.getPes() > mesPes)
-                .filter(pacient -> pacient.getPes() < menysPes)*/
-                .filter(pacient -> pacient.getAlçada() > mesAlcada)
-                .filter(pacient -> pacient.getAlçada() < menysAlcada)
+                .filter(pacient -> pacient.getPes() > finalMesPes)
+                .filter(pacient -> pacient.getPes() < finalMenysPes)
+                .filter(pacient -> pacient.getAlçada() > finalMesAlcada)
+                .filter(pacient -> pacient.getAlçada() < finalMenysAlcada)
                 .collect(Collectors.toList());
+
         data.addAll(pacients);
         tblView.setItems(data);
     }
+
 
 }
