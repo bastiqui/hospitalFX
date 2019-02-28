@@ -24,9 +24,9 @@
                   <Label layoutX="27.0" layoutY="214.0" text="Height:" />
                   <TextField fx:id="WeightT" layoutX="381.0" layoutY="168.0" onKeyTyped="#filter"/>
                   <TextField fx:id="AgeF" layoutX="152.0" layoutY="130.0" onKeyTyped="#filter"/>
-                  <TextField fx:id="SearchDni" layoutX="14.0" layoutY="41.0" onKeyTyped="#searchtext" />
-                  <TextField fx:id="SearchSurname" layoutX="379.0" layoutY="41.0" onKeyTyped="#searchtext" />
-                  <TextField fx:id="SearchName" layoutX="198.0" layoutY="41.0" onKeyTyped="#searchtext" />
+                  <TextField fx:id="SearchDni" layoutX="14.0" layoutY="41.0" onKeyTyped="#filter" />
+                  <TextField fx:id="SearchSurname" layoutX="379.0" layoutY="41.0" onKeyTyped="#filter" />
+                  <TextField fx:id="SearchName" layoutX="198.0" layoutY="41.0" onKeyTyped="#filter" />
                   <Label layoutX="82.0" layoutY="20.0" text="DNI" />
                   <Label layoutX="261.0" layoutY="20.0" text="Name" />
                   <Label layoutX="437.0" layoutY="20.0" text="Surname" />

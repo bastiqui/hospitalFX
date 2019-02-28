@@ -102,21 +102,8 @@ public class WindowController {
         }
     }
 
-    public void searchtext(KeyEvent keyEvent) {
-        data.clear();
-
-        List<Pacient> pacients = pacientList.stream()
-                .filter(pacient -> pacient.getNom().contains(SearchName.getText()))
-                .filter((pacient -> pacient.getCognoms().contains(SearchSurname.getText())))
-                .filter(pacient -> pacient.getDNI().contains(SearchDni.getText()))
-                .collect(Collectors.toList());
-        data.addAll(pacients);
-        tblView.setItems(data);
-    }
-
     public void filter(KeyEvent keyEvent) {
 
-        //TODO Esto no funciona al parsear
         data.clear();
 
         float mesPes = 0.0f;
@@ -146,6 +133,9 @@ public class WindowController {
                 .filter(pacient -> pacient.getPes() < finalMenysPes)
                 .filter(pacient -> pacient.getAlçada() > finalMesAlcada)
                 .filter(pacient -> pacient.getAlçada() < finalMenysAlcada)
+                .filter(pacient -> pacient.getNom().contains(SearchName.getText()))
+                .filter((pacient -> pacient.getCognoms().contains(SearchSurname.getText())))
+                .filter(pacient -> pacient.getDNI().contains(SearchDni.getText()))
                 .collect(Collectors.toList());
 
         data.addAll(pacients);
