@@ -3,19 +3,24 @@ import Model.Pacient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class WindowController {
@@ -23,6 +28,9 @@ public class WindowController {
     public TableView<Pacient> tblView;
     public TextField WeightF, WeightT, AgeF, AgeT, HeightF, HeightT;
     public TextField SearchDni, SearchSurname, SearchName;
+    public TextField ChartAF, ChartAT, ChartWF, ChartWT, ChartHF, ChartHT;
+
+    public PieChart Intocable, Editable;
 
     private List<Pacient> pacientList = new ArrayList<>();
     private boolean listaCargada = false;
@@ -31,7 +39,7 @@ public class WindowController {
     private File csvPath = new File("");
     private ObservableList<Pacient> data = FXCollections.observableArrayList();
 
-    LocalDate today = LocalDate.now();
+    private LocalDate today = LocalDate.now();
 
     private void alerta(String header, String content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -100,7 +108,7 @@ public class WindowController {
             data.clear();
             data.addAll(pacientList);
             tblView.setItems(data);
-        }else{
+        }else {
             data.clear();
             data.addAll(pacients);
             tblView.setItems(data);
@@ -165,5 +173,30 @@ public class WindowController {
         } else {
             return 0;
         }
+    }
+
+    public void ShowChart(ActionEvent actionEvent) {
+        Parent root;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("chart.fxml")));
+            Stage stage = new Stage();
+            stage.setTitle("Chart section");
+            stage.setScene(new Scene(root, 600, 400));
+            addChart();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void addChart() {
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                        new PieChart.Data("Grapefruit", 13),
+                        new PieChart.Data("Oranges", 25),
+                        new PieChart.Data("Plums", 10),
+                        new PieChart.Data("Pears", 22),
+                        new PieChart.Data("Apples", 30));
+        Intocable.setData(pieChartData);
+        Intocable.setTitle("Imported Fruits");
     }
 }
