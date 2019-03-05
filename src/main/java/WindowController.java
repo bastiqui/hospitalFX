@@ -24,13 +24,12 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class WindowController {
-    public Button btnSearch, btnList, BtnFile;
+    public Button btnList;
+    public Button BtnFile;
     public TableView<Pacient> tblView;
     public TextField WeightF, WeightT, AgeF, AgeT, HeightF, HeightT;
     public TextField SearchDni, SearchSurname, SearchName;
     public TextField ChartAF, ChartAT, ChartWF, ChartWT, ChartHF, ChartHT;
-
-    public PieChart Intocable, Editable;
 
     private List<Pacient> pacientList = new ArrayList<>();
     private boolean listaCargada = false;
@@ -182,21 +181,9 @@ public class WindowController {
             Stage stage = new Stage();
             stage.setTitle("Chart section");
             stage.setScene(new Scene(root, 600, 400));
-            addChart();
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void addChart() {
-        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                        new PieChart.Data("Grapefruit", 13),
-                        new PieChart.Data("Oranges", 25),
-                        new PieChart.Data("Plums", 10),
-                        new PieChart.Data("Pears", 22),
-                        new PieChart.Data("Apples", 30));
-        Intocable.setData(pieChartData);
-        Intocable.setTitle("Imported Fruits");
     }
 }
