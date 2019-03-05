@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WindowController">
    <children>
       <SplitPane dividerPositions="0.5, 0.5" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0">
@@ -28,7 +31,6 @@
                   <Label layoutX="82.0" layoutY="20.0" text="DNI" />
                   <Label layoutX="261.0" layoutY="20.0" text="Name" />
                   <Label layoutX="437.0" layoutY="20.0" text="Surname" />
-                  <Button fx:id="btnSearch" layoutX="570.0" layoutY="41.0" mnemonicParsing="false" onAction="#Buscar" text="Search" />
                   <Label layoutX="36.0" layoutY="135.0" text="Age:" />
                   <Label layoutX="345.0" layoutY="135.0" text="To" />
                   <TextField fx:id="AgeT" layoutX="377.0" layoutY="130.0" onKeyTyped="#filter" />
